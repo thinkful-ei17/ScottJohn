@@ -79,13 +79,30 @@
 // Add an empty method to the loaf object called hydration.
 // Fill in the body of the method to return the hydration of the loaf (the water divided by the flour multiplied by 100).
 // Call the hydration method and use console.log to print the result.
-const loaf = {
-    flour: 300,
-    water: 210,
-    hydration: function(){
-        return this.water / this.flour * 100;
-    }
-}
+// const loaf = {
+//     flour: 300,
+//     water: 210,
+//     hydration: function(){
+//         return this.water / this.flour * 100;
+//     }
+// }
 
-console.log(loaf.flour, loaf.water);
-console.log(loaf.hydration());
+// console.log(loaf.flour, loaf.water);
+// console.log(loaf.hydration());
+
+
+// Create an object with five properties: foo, bar, fum, quux, and spam. Give each property a unique value of your choosing.
+// Loop over the object using for ... in
+// Use console.log to show each property name and its associated value.
+
+// const hi= {
+//     foo: 'foo',
+//     bar: 'bar',
+//     fum: 'fum',
+//     quux: 'quux',
+//     spam: 'spam'
+// }
+
+// for(let key in hi){
+//     console.log(key, hi[key]);
+// }
