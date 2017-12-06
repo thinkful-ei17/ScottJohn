@@ -125,14 +125,45 @@
 // Store these objects in an array.
 // Iterate over the array and use console.log to show each person's job title and name.
 
+// const nyc = {
+//     name: 'John',
+//     jobTitle: 'Dev'
+// }
+
+// const pdx = {
+//     name: 'Scott',
+//     jobTitle: 'unemployed'
+// }
+
+// const cali = {
+//     name: 'Hinderson',
+//     jobTitle: 'CEO'
+// }
+
+// let cities = [nyc,pdx,cali];
+
+// cities.forEach(function(city){
+//     console.log(city.name, city.jobTitle);
+// });
+
+// . Properties that aren't there
+
+// Expand on the previous example by adding a boss property to everyone except the owner of the company.
+// Change the iteration to print out messages in this format: "${title} ${name} reports to ${boss}.". For example: Junior Engineer Bob reports to Fred..
+// What gets printed out for the owner?
+// Adjust the message so that people with no boss display "${title} ${name} doesn't report to anybody." - for example, Founder John doesn't report to anybody.
+
+
 const nyc = {
     name: 'John',
-    jobTitle: 'Dev'
+    jobTitle: 'Dev',
+    boss: 'Hinderson'
 }
 
 const pdx = {
     name: 'Scott',
-    jobTitle: 'unemployed'
+    jobTitle: 'unemployed',
+    boss: 'Hinderson'
 }
 
 const cali = {
@@ -143,5 +174,13 @@ const cali = {
 let cities = [nyc,pdx,cali];
 
 cities.forEach(function(city){
-    console.log(city.name, city.jobTitle);
-});
+    let bossReport;
+    if(city.boss){
+        bossReport = `reports to ${city.boss}`;
+    } 
+    else{
+        bossReport = "doesn't report to anybody";
+    };
+    console.log(`${city.jobTitle} ${city.name} ${bossReport}`)
+}
+)
