@@ -113,8 +113,35 @@
 // Use console.log to show the name of a hobbit's fourth meal of the day.
 // Don't forget that humans and hobbits count from 1, but computers count from 0.
 
-const hobbitMeals = {
-    meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
-};
+// const hobbitMeals = {
+//     meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
+// };
 
-console.log(hobbitMeals.meals[3]);
+// console.log(hobbitMeals.meals[3]);
+
+
+
+// Create 3-5 objects, each with a name and a jobTitle. Use people you know, or characters from fiction, or your own inventions.
+// Store these objects in an array.
+// Iterate over the array and use console.log to show each person's job title and name.
+
+const nyc = {
+    name: 'John',
+    jobTitle: 'Dev'
+}
+
+const pdx = {
+    name: 'Scott',
+    jobTitle: 'unemployed'
+}
+
+const cali = {
+    name: 'Hinderson',
+    jobTitle: 'CEO'
+}
+
+let cities = [nyc,pdx,cali];
+
+cities.forEach(function(city){
+    console.log(city.name, city.jobTitle);
+});
