@@ -62,7 +62,7 @@
 //     delete obj.bar;
 //     return obj;
 //   }
-  
+
 //   var sampleObj = {
 //     foo: 'foo',
 //     bar: 'bar',
@@ -154,33 +154,95 @@
 // Adjust the message so that people with no boss display "${title} ${name} doesn't report to anybody." - for example, Founder John doesn't report to anybody.
 
 
-const nyc = {
-    name: 'John',
-    jobTitle: 'Dev',
-    boss: 'Hinderson'
+// const nyc = {
+//     name: 'John',
+//     jobTitle: 'Dev',
+//     boss: 'Hinderson'
+// }
+
+// const pdx = {
+//     name: 'Scott',
+//     jobTitle: 'unemployed',
+//     boss: 'Hinderson'
+// }
+
+// const cali = {
+//     name: 'Hinderson',
+//     jobTitle: 'CEO'
+// }
+
+// let cities = [nyc,pdx,cali];
+
+// cities.forEach(function(city){
+//     let bossReport;
+//     if(city.boss){
+//         bossReport = `reports to ${city.boss}`;
+//     } 
+//     else{
+//         bossReport = "doesn't report to anybody";
+//     };
+//     console.log(`${city.jobTitle} ${city.name} ${bossReport}`)
+// }
+// )
+
+
+
+// function decode(word){
+//     let decoded = ""; 
+//     let wordArr = word.split(" ");
+//     let firstLetters = [];
+//     wordArr.forEach(function(n) {
+//         firstLetters.push(n.substring(0,1));
+//     });
+//     // console.log(arr2);
+//     for(let x = 0; x < firstLetters.length; x++){
+//         if (firstLetters[x] == "a") {
+//             decoded = decoded + "2";
+//         }
+
+//         else if (firstLetters[x] == "b") {
+//             decoded = decoded + "3";
+//         }
+
+//         else if (firstLetters[x] == "c") {
+//             decoded = decoded + "4";
+//         }
+
+//         else if (firstLetters[x] == "d") {
+//             decoded = decoded + "5";
+//         }
+
+//         else {
+//             decoded = decoded + "-";
+//         }
+//     }
+
+//     return word.charAt(decoded);
+// }
+
+// Redo your Cracking the Code problem from String Drills but this time use an object as your cipher. Additionally, instead of having the function accept a single word, have the function accept a single string of words, and then return the fully decoded message.
+
+
+let decode = {
+    a: 2,
+    b: 3,
+    c: 4,
+    d: 5
+}
+// console.log(decode.a);
+
+function decodedString(str) {
+    let decodedAnswer = '';
+    let wordArray = str.split(" ");
+    wordArray.forEach(function (word) {
+        let charNumber = decode[word.substring(0, 1)];
+        if (charNumber === undefined) {
+            decodedAnswer += ' ';
+        } else {
+            decodedAnswer += word.charAt(charNumber - 1);
+        }
+    })
+    return decodedAnswer;
 }
 
-const pdx = {
-    name: 'Scott',
-    jobTitle: 'unemployed',
-    boss: 'Hinderson'
-}
-
-const cali = {
-    name: 'Hinderson',
-    jobTitle: 'CEO'
-}
-
-let cities = [nyc,pdx,cali];
-
-cities.forEach(function(city){
-    let bossReport;
-    if(city.boss){
-        bossReport = `reports to ${city.boss}`;
-    } 
-    else{
-        bossReport = "doesn't report to anybody";
-    };
-    console.log(`${city.jobTitle} ${city.name} ${bossReport}`)
-}
-)
+console.log(decodedString("craft block argon meter bells brown croon droop"));
