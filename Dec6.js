@@ -20,6 +20,17 @@
 
 // console.log(createMyObject());
 
-function updateObject(obj){
-    obj
-}
+// Modify the updateObject function (which takes a single argument (obj)) so that it adds the following key/value pairs to obj and returns it:
+// function updateObject(obj) {
+//     obj.foo = 'foo';
+//     obj.bar = 'bar';
+//     obj.bizz = 'bizz';
+//     obj.bang = 'bang';
+//     return obj;
+// }
+
+// let hi = {
+//     color: 'red',
+//     shade: 'blue'
+// }
+// console.log(updateObject(hi));
