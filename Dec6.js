@@ -289,6 +289,7 @@
 // How would you change the factory function and other methods?
 
 function createCharacter(name, nickName, race, origin, attack, defense, opponent){
+
     return {
         name,
         nickName,
@@ -330,11 +331,12 @@ console.log(
 
  // Using the .find() function, retrieve your character nicknamed aragorn from characters and then call his describe method.
 
-console.log(characters[3].find('aragorn'));
+const findAragorn = (characters.find(character => character.nickName === 'aragorn'));
+findAragorn.describe();
 
  // Using the .filter() function, create a new array from characters that ONLY contains characters of the race Hobbit.
 
- let hobbits = characters.filter('hobbits');
+const hobbits = characters.filter(character => character.race === 'Hobbit');
  console.log(hobbits);
 
 
