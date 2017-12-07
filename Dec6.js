@@ -286,10 +286,11 @@
 // Aragon .... Anduril
 // Legolas ... Bow and Arrow
 // Arwen .... Hadhafang
-// How would you change the factory function and other methods?
+// // How would you change the factory function and other methods?
+
+// "Your opponent takes {x} damage and you receive {y} damage" where x and y are the differences between each characters attack and defense values. If defense exceeds attack, then take zero damage.
 
 function createCharacter(name, nickName, race, origin, attack, defense, opponent){
-
     return {
         name,
         nickName,
@@ -300,19 +301,20 @@ function createCharacter(name, nickName, race, origin, attack, defense, opponent
         describe: function(){
             console.log(`${this.name} is a ${this.race} from ${this.origin}.`)},
         evaluateFight: function(opponent){
-            let opponentDamage = opponent.defense - this.attack;
-            let ownDamage = this.defense - opponent.attack;
+            let opponentDamage = this.attack - opponent.defense ;
+            console.log('opponent damage', opponentDamage);
+            let ownDamage = opponent.attack - this.defense;
+            console.log('own damage', ownDamage);
             if(opponentDamage < 0){
                 opponentDamage = 0
                 };
             if(ownDamage < 0) {
                 ownDamage = 0
             };   
-           console.log(`Your opponent takes ${opponentDamage} damage and you receive ${ownDamage} damage`);
+           console.log(`${opponent.name} takes ${opponentDamage} damage and you, ${this.nickName}, receive ${ownDamage} damage`);
             }
-        }    
-   
-        };
+    }      
+};
 console.log(        
  createCharacter('scott', 'scottie', 'white', 'NC', 20, 200));
 
@@ -333,11 +335,27 @@ console.log(
 
 const findAragorn = (characters.find(character => character.nickName === 'aragorn'));
 findAragorn.describe();
+findAragorn.evaluateFight(characters[2]);
 
  // Using the .filter() function, create a new array from characters that ONLY contains characters of the race Hobbit.
 
 const hobbits = characters.filter(character => character.race === 'Hobbit');
  console.log(hobbits);
+
+ // Using the .filter() function, create a new array from characters that ONLY contains characters with attack value above 5.
+const badAsses = characters.filter(character => character.attack > 5);
+console.log(badAsses);
+
+// What if you wanted to equip a weapon for each character and change how they are described? For example:
+
+// Gandolf the White is a Wizard of the Middle Earth who uses a wizard staff
+// Bilbo Baggings is a Hobbit of the Shire who uses the Ring
+// Frodo ... String and Barrow Blade
+// Aragon .... Anduril
+// Legolas ... Bow and Arrow
+// Arwen .... Hadhafang
+// How would you change the factory function and other methods?
+
 
 
  // ===============================================================================================
