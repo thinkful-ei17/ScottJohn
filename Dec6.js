@@ -288,16 +288,16 @@
 // Arwen .... Hadhafang
 // How would you change the factory function and other methods?
 
-function createCharacter(name, nickName, race, origin, attack, defense){
+function createCharacter(name, nickName, race, origin, attack, defense, opponent){
     return {
-        name: 'string',
-        nickName: 'string',
-        race: 'string',
-        origin:'string',
-        attack: 10,
-        defense: 10,
+        name,
+        nickName,
+        race,
+        origin,
+        attack,
+        defense,
         describe: function(){
-            console.log(`${this.name} is a ${this.race} from ${this.origin}.`),
+            console.log(`${this.name} is a ${this.race} from ${this.origin}.`)},
         evaluateFight: function(opponent){
             let opponentDamage = opponent.defense - this.attack;
             let ownDamage = this.defense - opponent.attack;
@@ -308,11 +308,62 @@ function createCharacter(name, nickName, race, origin, attack, defense){
                 ownDamage = 0
             };   
            console.log(`Your opponent takes ${opponentDamage} damage and you receive ${ownDamage} damage`);
-            };
+            }
         }    
+   
+        };
+console.log(        
+ createCharacter('scott', 'scottie', 'white', 'NC', 20, 200));
 
-        }
-    }
-}
+ // Using array literal syntax, create an array characters that calls your factory function for each character in the table above with the relevant parameters. Your characters array should now have 5 objects in it.
 
-let characters = []
+ let characters = [createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', '10', '6'), createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1), createCharacter('Frodo', 'Bagginsfrodo', 'Hobbit', 'The Shire', 3, 2), createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8), createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5)];
+
+ console.log(characters);
+
+// Add a new character to characters (make up any attributes not provided):
+// Arwen Undomiel is a Half-Elf of Rivendell
+
+ characters.push(createCharacter('Arwen Undomiel', 'Evenstar', 'Half-Elf', 'Rivendell', 8, 5));
+
+ console.log(characters);
+
+ // Using the .find() function, retrieve your character nicknamed aragorn from characters and then call his describe method.
+
+console.log(characters[3].find('aragorn'));
+
+ // Using the .filter() function, create a new array from characters that ONLY contains characters of the race Hobbit.
+
+ let hobbits = characters.filter('hobbits');
+ console.log(hobbits);
+
+
+ // ===============================================================================================
+// | Name                      | Nickname    | Race       | Origin         | Attack   | Defense  |
+// -----------------------------------------------------------------------------------------------
+// | Gandalf the White         | gandalf     | Wizard     | Middle Earth   | 10       | 6        |
+// -----------------------------------------------------------------------------------------------
+// | Bilbo Baggins             | bilbo       | Hobbit     | The Shire      | 2        | 1        |
+// -----------------------------------------------------------------------------------------------
+// | Frodo Baggins             | frodo       | Hobbit     | The Shire      | 3        | 2        |
+// -----------------------------------------------------------------------------------------------
+// | Aragorn son of Arathorn   | aragorn     | Man        | Dunnedain      | 6        | 8        |
+// -----------------------------------------------------------------------------------------------
+// | Legolas                   | legolas     | Elf        | Woodland Realm | 8        | 5        |
+// -----------------------------------------------------------------------------------------------
+
+// Using the .find() function, retrieve your character nicknamed aragorn from characters and then call his describe method.
+
+// Using the .filter() function, create a new array from characters that ONLY contains characters of the race Hobbit.
+
+// Using the .filter() function, create a new array from characters that ONLY contains characters with attack value above 5.
+
+// What if you wanted to equip a weapon for each character and change how they are described? For example:
+
+// Gandolf the White is a Wizard of the Middle Earth who uses a wizard staff
+// Bilbo Baggings is a Hobbit of the Shire who uses the Ring
+// Frodo ... String and Barrow Blade
+// Aragon .... Anduril
+// Legolas ... Bow and Arrow
+// Arwen .... Hadhafang
+// How would you change the factory function and other methods?
