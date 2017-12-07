@@ -290,7 +290,7 @@
 
 // "Your opponent takes {x} damage and you receive {y} damage" where x and y are the differences between each characters attack and defense values. If defense exceeds attack, then take zero damage.
 
-function createCharacter(name, nickName, race, origin, attack, defense, opponent){
+function createCharacter(name, nickName, race, origin, attack, defense, opponent) {
     return {
         name,
         nickName,
@@ -298,51 +298,52 @@ function createCharacter(name, nickName, race, origin, attack, defense, opponent
         origin,
         attack,
         defense,
-        describe: function(){
-            console.log(`${this.name} is a ${this.race} from ${this.origin}.`)},
-        evaluateFight: function(opponent){
-            let opponentDamage = this.attack - opponent.defense ;
+        describe: function () {
+            console.log(`${this.name} is a ${this.race} from ${this.origin}.`)
+        },
+        evaluateFight: function (opponent) {
+            let opponentDamage = this.attack - opponent.defense;
             console.log('opponent damage', opponentDamage);
             let ownDamage = opponent.attack - this.defense;
             console.log('own damage', ownDamage);
-            if(opponentDamage < 0){
+            if (opponentDamage < 0) {
                 opponentDamage = 0
-                };
-            if(ownDamage < 0) {
+            };
+            if (ownDamage < 0) {
                 ownDamage = 0
-            };   
-           console.log(`${opponent.name} takes ${opponentDamage} damage and you, ${this.nickName}, receive ${ownDamage} damage`);
-            }
-    }      
+            };
+            console.log(`${opponent.name} takes ${opponentDamage} damage and you, ${this.nickName}, receive ${ownDamage} damage`);
+        }
+    }
 };
-console.log(        
- createCharacter('scott', 'scottie', 'white', 'NC', 20, 200));
 
- // Using array literal syntax, create an array characters that calls your factory function for each character in the table above with the relevant parameters. Your characters array should now have 5 objects in it.
+console.log(createCharacter('scott', 'scottie', 'white', 'NC', 20, 200));
 
- let characters = [createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', '10', '6'), createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1), createCharacter('Frodo', 'Bagginsfrodo', 'Hobbit', 'The Shire', 3, 2), createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8), createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5)];
+// Using array literal syntax, create an array characters that calls your factory function for each character in the table above with the relevant parameters. Your characters array should now have 5 objects in it.
 
- console.log(characters);
+let characters = [createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', '10', '6'), createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1), createCharacter('Frodo', 'Bagginsfrodo', 'Hobbit', 'The Shire', 3, 2), createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8), createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5)];
+
+console.log(characters);
 
 // Add a new character to characters (make up any attributes not provided):
 // Arwen Undomiel is a Half-Elf of Rivendell
 
- characters.push(createCharacter('Arwen Undomiel', 'Evenstar', 'Half-Elf', 'Rivendell', 8, 5));
+characters.push(createCharacter('Arwen Undomiel', 'Evenstar', 'Half-Elf', 'Rivendell', 8, 5));
 
- console.log(characters);
+console.log(characters);
 
- // Using the .find() function, retrieve your character nicknamed aragorn from characters and then call his describe method.
+// Using the .find() function, retrieve your character nicknamed aragorn from characters and then call his describe method.
 
 const findAragorn = (characters.find(character => character.nickName === 'aragorn'));
 findAragorn.describe();
 findAragorn.evaluateFight(characters[2]);
 
- // Using the .filter() function, create a new array from characters that ONLY contains characters of the race Hobbit.
+// Using the .filter() function, create a new array from characters that ONLY contains characters of the race Hobbit.
 
 const hobbits = characters.filter(character => character.race === 'Hobbit');
- console.log(hobbits);
+console.log(hobbits);
 
- // Using the .filter() function, create a new array from characters that ONLY contains characters with attack value above 5.
+// Using the .filter() function, create a new array from characters that ONLY contains characters with attack value above 5.
 const badAsses = characters.filter(character => character.attack > 5);
 console.log(badAsses);
 
@@ -356,7 +357,64 @@ console.log(badAsses);
 // Arwen .... Hadhafang
 // How would you change the factory function and other methods?
 
+// function createCharacter(name, nickName, race, origin, weapon, attack, defense, opponent){
+//     return {
+//         name,
+//         nickName,
+//         race,
+//         origin,
+//         weapon,
+//         attack,
+//         defense,
+//         describe: function(){
+//             console.log(`${this.name} is a ${this.race} from ${this.origin} who uses a ${this.weapon}`)},
+//         evaluateFight: function(opponent){
+//             let opponentDamage = this.attack - opponent.defense ;
+//             console.log('opponent damage', opponentDamage);
+//             let ownDamage = opponent.attack - this.defense;
+//             console.log('own damage', ownDamage);
+//             if(opponentDamage < 0){
+//                 opponentDamage = 0
+//                 };
+//             if(ownDamage < 0) {
+//                 ownDamage = 0
+//             };   
+//            console.log(`${opponent.name} takes ${opponentDamage} damage and you, ${this.nickName}, receive ${ownDamage} damage`);
+//             }
+//     }      
+// };
 
+// Gandolf the White is a Wizard of the Middle Earth who uses a wizard staff
+// Bilbo Baggings is a Hobbit of the Shire who uses the Ring
+// Frodo ... String and Barrow Blade
+// Aragon .... Anduril
+// Legolas ... Bow and Arrow
+// Arwen .... Hadhafang
+
+
+
+let weapons = ['wizard staff', 'Ring', 'Sting and Barrow Blade', 'Anduril', 'bow and arrow', 'Hadhafang'];
+
+// function addWeapons(weapons) {
+//     for (let i = 0; i < characters.length; i++) {
+//         let character = characters[i];
+//         character.weapon = weapons[i];
+//         character.describe = function () {
+//             console.log(`${this.name} is a ${this.race} from ${this.origin} who uses a ${this.weapon}`)
+//         };
+//     };
+// };
+
+
+let armedCharacters = characters.forEach(function addWeapons(character, i) {
+        character.weapon = weapons[i];
+        character.describe = function () {
+            console.log(`${this.name} is a ${this.race} from ${this.origin} who uses a ${this.weapon}`)
+        };
+});
+
+console.log(characters);
+characters[1].describe();
 
  // ===============================================================================================
 // | Name                      | Nickname    | Race       | Origin         | Attack   | Defense  |
